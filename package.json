@@ -1,0 +1,22 @@
+{
+  "name": "clipify",
+  "version": "1.0.0",
+  "description": "ocr",
+  "main": "index.js",
+  "scripts": {
+    "webpack": "webpack -wp"
+  },
+  "keywords": [
+    "OCR",
+    "Text extraction"
+  ],
+  "author": "Abijith Vasanthakumar",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^4.46.0",
+    "webpack-cli": "^3.3.12"
+  },
+  "dependencies": {
+    "tesseract.js": "^1.0.19"
+  }
+}
