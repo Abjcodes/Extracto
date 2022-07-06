@@ -1,3 +1,4 @@
+//Inserting the text into the text editor
 document.addEventListener('DOMContentLoaded', function() {
       navigator.clipboard
                     .readText()
@@ -7,9 +8,10 @@ document.addEventListener('DOMContentLoaded', function() {
                             err => console.log(err)
                     );
     document.getElementById("clipboard-paste").addEventListener("input", function() {
-    //to implrment auto-copy
+    //tldr: implement auto-copy
     }, false);
 })
+//Setting attributes for downloading the text
 const fname='convtxt.txt'
 function downloadFile(txtcontent){
 const element=document.createElement('a');
@@ -21,6 +23,7 @@ element.style.display='none';
 document.body.appendChild(element);
 element.click();
 };
+//Download button
 window.onload=()=>{
     document.getElementById('download').addEventListener('click',e=>{
     const txtcontent=document.getElementById('clipboard-paste').innerText;
