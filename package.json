@@ -4,7 +4,7 @@
   "description": "ocr",
   "main": "index.js",
   "scripts": {
-    "webpack": "webpack -wp"
+    "webpack": "webpack --mode production"
   },
   "keywords": [
     "OCR",
@@ -13,10 +13,11 @@
   "author": "Abijith Vasanthakumar",
   "license": "ISC",
   "devDependencies": {
-    "webpack": "^4.46.0",
-    "webpack-cli": "^3.3.12"
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0"
   },
   "dependencies": {
+    "process": "^0.11.10",
     "tesseract.js": "^1.0.19"
   }
 }
