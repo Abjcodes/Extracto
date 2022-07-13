@@ -1,4 +1,4 @@
-# Clipify
+# Extracto
 
 ![1](https://user-images.githubusercontent.com/42151354/178771069-5a6483be-dc97-43aa-acf8-aacbb92b8c4c.png)
 
