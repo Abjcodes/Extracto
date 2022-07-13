@@ -1,12 +1,97 @@
 body {
-    font-family: 'Work Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
+    margin: 0px;
 }
 
-.header {
-    font-size: xx-large;
-    justify-content: center;
+.parent-container {
     display: flex;
-    color: rgb(31, 31, 31);
+    justify-content: flex-start;
+    }
+
+.sidebar {
+    background: #F6F6F6;
+    width: 22rem;
+    height: 783px;
+}
+
+.sidebar-contents :not(hr, .add-note-btn, .card-container, .cards) {
+    margin-left: 15px;
+}
+
+/* .btn-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */
+
+.add-note-btn {
+    background: #407AFF;
+    border: none;
+    color: white;
+    padding: 16px 120px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 5px;
+
+}
+
+hr {
+    width: 22rem;
+    border-top: 1px solid rgb(212, 212, 212);
+    margin-top: 10px;
+    margin-bottom: 12px;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.cards {
+    background: #ffffff;
+    margin-bottom: 12px;
+    border-radius: 7px;
+}
+
+.card-container .title {
+    margin-bottom: 0px;
+    margin-top: 16px; 
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 29px;
+}
+
+.card-container .time {
+    color: #949494;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 15px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.card-container .text-body {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: #858585;
+    margin-right: 12px;
+    margin-bottom: 16px;
+}
+
+.right-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
 }
 
 .textcontent {
