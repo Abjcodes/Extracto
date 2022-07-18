@@ -15,9 +15,10 @@
   "background" : {
     "scripts": [
       "dist/main.js",
-      "background.js"
+      "background.js",
+      "newTab.js"
     ],
-    "persistent": false
+    "persistent": true
   },
 
   "web_accessible_resources": [
@@ -43,7 +44,9 @@
     "storage",
     "activeTab",
     "clipboardWrite",
-    "clipboardRead"
+    "clipboardRead",
+    "tabs"
   ],
-  "content_security_policy":"script-src 'self' 'unsafe-eval' https://cdn.jsdelivr.net; object-src 'self'"
+  "content_security_policy":"script-src 'self' 'unsafe-eval' https://cdn.jsdelivr.net ; object-src 'self'"
+
 }
