@@ -33,6 +33,8 @@ var x = document.getElementById("snackbar");
   // After 3 seconds, remove the show class from DIV
   setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
 })
+
+
 let cards = document.querySelectorAll('.cards');
 cards.forEach((card) => {
     card.addEventListener('click', onClick, false);
@@ -43,6 +45,16 @@ function onClick(e) {
     txtContent.innerHTML = card.querySelector('.text-body').innerHTML;
 
 }
+
+//Dark mode
+let toggleBtn = document.getElementById("toggleBtn");
+toggleBtn.addEventListener('click', () => {
+    var element = document.body;
+  element.classList.toggle("dark-mode");
+})
+
+
+
 })
 
 
@@ -87,7 +99,7 @@ function cardBuilder(title, content) {
     var cardContent = document.createElement("p");
     cardContent.setAttribute("class", "text-body");
     const delBtn = document.createElement("button");
-    delBtn.textContent = "x";
+    delBtn.textContent = "Remove";
     delBtn.setAttribute("class","delBtn")
 
     //Adding contents
