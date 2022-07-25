@@ -46,11 +46,10 @@ function onClick(e) {
 
 }
 
-//Dark mode
-let toggleBtn = document.getElementById("toggleBtn");
-toggleBtn.addEventListener('click', () => {
-    var element = document.body;
-  element.classList.toggle("dark-mode");
+let addNoteBtn = document.querySelector('.add-note-btn');
+addNoteBtn.addEventListener('click', () =>{
+ txtTitle.innerHTML = "Add title";
+ txtContent.value = "Add text";
 })
 
 
@@ -58,19 +57,16 @@ toggleBtn.addEventListener('click', () => {
 })
 
 
+    /*let addButton=document.querySelector('#add-note-btn');
+    addButton.addEventListener('click',()=>{
+        document.getElementById('main-title').textContent="Enter Title";
+        document.getElementById('clipboard-paste').textContent="Enter Title";
+        console.log("Hi");
+
+    })*/
 
 //Setting attributes for downloading the text
-const fname='convtxt.txt'
-function downloadFile(txtcontent){
-const element=document.createElement('a');
-const blob=new Blob([txtcontent],{type:'plain/text'});
-const fileUrl=URL.createObjectURL(blob);
-element.setAttribute('href',fileUrl);
-element.setAttribute('download',fname);
-element.style.display='none';
-document.body.appendChild(element);
-element.click();
-}
+
 //Save to localStorage code
 function SaveDataToLocalStorage(data)
 {
@@ -102,9 +98,16 @@ function cardBuilder(title, content) {
     delBtn.textContent = "Remove";
     delBtn.setAttribute("class","delBtn")
 
+    var today = new Date();
+
+    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    
+    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    
+    var dateTime ="Last edited: "+ date+' '+time;
     //Adding contents
     cardTitle.innerHTML = title;
-    cardCreatedTime.innerHTML = "Last edited: 10 mins ago";
+    cardCreatedTime.innerHTML = dateTime;
     cardContent.innerHTML = content;
     
     //Appending elements
@@ -132,11 +135,24 @@ function cardDisplay() {
     }
 }
 //Download button
-window.onload=()=>{
-    document.getElementById('download').addEventListener('click',e=>{
-    const txtcontent=document.getElementById('clipboard-paste').innerText;
-    if(txtcontent){
-        downloadFile(txtcontent);
-    }
-    });
+const fname='convtxt.txt'
+function downloadFile(txtcontent){
+const element=document.createElement('a');
+const blob=new Blob([txtcontent],{type:'plain/text'});
+const fileUrl=URL.createObjectURL(blob);
+element.setAttribute('href',fileUrl);
+element.setAttribute('download',fname);
+element.style.display='none';
+document.body.appendChild(element);
+element.click();
 };
+window.onload=()=>{
+document.getElementById('download').addEventListener('click', e=>{
+const txtcontent=document.getElementById('clipboard-paste').textContent;
+if(txtcontent){
+    downloadFile(txtcontent);
+}
+});
+};
+
+
