@@ -7,20 +7,88 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="newTab.js"></script>
 </head>
 <body>
-    <div class = 'header'>
-    <h1>Clipify</h1>
+<div class="parent-container">
+
+    <div class = 'sidebar'>
+        
+
+       <div class="sidebar-contents">
+        <img class ="logo"src="/images/logo.png" alt="ExtractO Logo">
+        <div class="btn-container">
+        <button class="add-note-btn">
+            Add Note
+        </button>
+        </div>
+        <hr>
+        <div class="card-container">
+            <!-- <div class = "cards">
+            <h3 class="title">
+                CST 304 - Notes
+            </h3>
+            <p class = "time">
+                Last edited: 10 mins ago
+            </p>
+            <p class = "text-body">
+                Lorem Ipsum is simply dummy text of the printing and 
+                typesetting industry. Lorem Ipsum has been the 
+                industry's standard dummy text ever since the 1500s, 
+                when an unknown printer took a galley of type and 
+                scrambled it to make a type specimen book. It has.....
+            </p>
+            </div>
+            <div class = "cards">
+                <h3 class="title">
+                    CST 304 - Notes
+                </h3>
+                <p class = "time">
+                    Last edited: 10 mins ago
+                </p>
+                <p class = "text-body">
+                    Lorem Ipsum is simply dummy text of the printing and 
+                    typesetting industry. Lorem Ipsum has been the 
+                    industry's standard dummy text ever since the 1500s, 
+                    when an unknown printer took a galley of type and 
+                    scrambled it to make a type specimen book. It has.....
+                </p>
+                </div> -->
+        </div>
+       </div>
     </div>
-    <div class = "textcontent">
-    <p class = "subheader">Your copied text is: </p>
-    <br/>
-    <p contentEditable="true" id="clipboard-paste"> </p>
-    <p> You can edit the text if there are mistakes</p>
-    <button id="download">Download text</button>
+    <div class = "right-container">
+    <div class="top-container">
+        
+        <button id="download">
+            Download  txt
+        </button>
+     
+    </div>
+    <div class = "text-container">
+        <div class = "toolbar">
+           <p class="ptext">Text is automatically copied to clipboard. You can edit the text if there are mistakes</p>
+        </div>
+    <h2 class = "main-title" contentEditable="true">
+        Title
+    </h2>
+    <textarea contentEditable="true" id="clipboard-paste">No text detected</textarea>
+    </div>
+    <!-- <div class="copy-reminder">
+    <p>
+        The text is automatically saved to clipboard. You can edit 
+        it to make changes.
+    </p>
+    </div> -->
+    <div id="snackbar">Succesfully added to local storage</div>
+    <div class = "storebtn-container">
+    <button class="store_items">
+        Store
+    </button>
+    </div>
    </div>
+</div>
 </body>
 </html>

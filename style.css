@@ -1,31 +1,336 @@
-body {
-    font-family: 'Work Sans', sans-serif;
+html,body {
+    font-family: 'Inter', sans-serif;
+    margin: 0px;
+    height: 100%;
 }
 
-.header {
-    font-size: xx-large;
-    justify-content: center;
+.parent-container {
     display: flex;
-    color: rgb(31, 31, 31);
+    justify-content: flex-start;
+    }
+
+.sidebar {
+    background: #F5F7F9;
+    width: 29rem;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
-.textcontent {
+.sidebar-contents :not(hr, .add-note-btn, .card-container, .cards) {
+    margin-left: 15px;
+}
+
+/* .btn-container {
     display: flex;
-    justify-content: center;
     flex-direction: column;
     align-items: center;
+} */
+
+.add-note-btn {
+    background: #055DF6;
+    border: none;
+    color: white;
+    padding: 16px 128px;
+    text-align: center;
+    text-decoration: none;
+    /*display: inline-block;*/
+    height: 50px;
+    font-size: 16px;
+    font-weight: 100;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+.ptext{
+    font-size: 16px;
+    font-weight: 100;
+    text-align: center;
+}
+hr {
+    width: 22rem;
+    border-top: 1px solid rgb(212, 212, 212);
+    margin-top: 10px;
+    margin-bottom: 12px;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.cards {
+    background: #ffffff;
+    margin-bottom: 16px;
+    border-radius: 7px;
+    box-shadow: #ecf4ff 0px 8px 24px;
+    transition: all 0.3s ease 0s;
+}
+
+.cards:hover {
+    box-shadow: 0px 14px 56px -12px #055df628;
+    transform: translateY(-2.5px);
 }
 
 
-.subheader {
-    font-size: 20px;
+.cards .delBtn {
+    margin-bottom: 16px; 
+    background-color: none;
+    border: 1px solid;
+    border-radius: 4px;
+    border-color: #ff0141;
+    color: #ff0141;
+    padding: 6px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
     font-weight: 500;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.cards .delBtn:hover {
+    background-color: #ff0141;
+    color: white;
+}
+
+.card-container .title {
+    margin-bottom: 0px;
+    margin-top: 16px; 
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 29px;
+}
+
+.cards .time {
+    color: #949494;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 15px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.card-container .text-body {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: #858585;
+    margin-right: 12px;
+    margin-bottom: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.right-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.top-container {
+    display: flex;
+    margin-top: 22px;
+    justify-content: end;
+    margin-right: 15px;
+}
+
+.top-container .doctype-btn {
+    margin-right: 24px;
+}
+
+#toggleBtn {
+    margin-right: 24px;
+}
+
+#download {
+    background: #055DF6;
+    border: none;
+    color: white;
+    padding: 10px 28px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 4px;
+    transition: all 0.3s ease 0s;
+
+    cursor: pointer;
+}
+#download:hover {
+    box-shadow: 0px 14px 36px -10px #0062ff90;
+    transform: translateY(-4px);
+}
+.text-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 52px;
+    justify-content: center;
+}
+
+.text-container .toolbar {
+    background: #F5F7F9;
+    height: 40px;
+    margin-left: 16px;
+    margin-right: 16px;
+    border-radius: 5px;
+    
+}
+
+.text-container .main-title{
+    color: #202027;
+    margin-left: 16px;
+    margin-top: 40px;
+    font-weight: 700;
+    font-size: 32px;
+    margin-bottom: 32px;
+}
+
+.text-container .main-title:focus{
+    outline: none !important;
+    border:2px solid #f3f3f3;
+    border-radius: 5px;
 }
 
 #clipboard-paste {
-    padding: 10%;
-    background-color: rgba(226, 226, 226, 0.568);
-    border-radius: 5%;
+    border: none;
+    height: 400px;
+    margin-left: 16px;
+    margin-right: 16px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #3b3b3b;
+    resize: none;
+}
+
+#clipboard-paste:focus{
+    outline: none !important;
+    border:2px solid #f3f3f3;
+    border-radius: 4px;
+}
+
+/* .copy-reminder {
+    display: none;
+    margin-left: 180px;
+    margin-right: 180px;
+    margin-top: 40px;
+    background: #f8f8f8;
+    display: flex;
+    justify-content: center;
     font-size: 16px;
     font-weight: 400;
+    color: #9e9e9e;
+    border-radius: 5px;
+} */
+
+.storebtn-container {
+    display: flex;
+    margin: 16px 16px 16px 20px;
+    justify-content: center;
 }
+.logo{
+    padding-top: 10px;
+    padding-bottom:10px ;
+    margin-left: 25px;
+    height: 40px;
+    width: 150px;
+}
+
+.store_items {
+    background: #055DF6;
+    border: none;
+    color: white;
+    padding: 15px 66px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 4px;
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+}
+
+.store_items:hover {
+    box-shadow: 0px 14px 36px -10px #0062ff90;
+    transform: translateY(-4px);
+}
+
+/*Toast*/
+#snackbar {
+    visibility: hidden; /* Hidden by default. Visible on click */
+    min-width: 250px; /* Set a default minimum width */
+    margin-left: -125px; /* Divide value of min-width by 2 */
+    background-color: #333; /* Black background color */
+    color: #fff; /* White text color */
+    text-align: center; /* Centered text */
+    border-radius: 2px; /* Rounded borders */
+    padding: 16px; /* Padding */
+    position: fixed; /* Sit on top of the screen */
+    z-index: 1; /* Add a z-index if needed */
+    left: 55%; /* Center the snackbar */
+    bottom: 30px; /* 30px from the bottom */
+  }
+  
+  /* Show the snackbar when clicking on a button (class added with JavaScript) */
+  #snackbar.show {
+    visibility: visible; /* Show the snackbar */
+    /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+    However, delay the fade out process for 2.5 seconds */
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  }
+  
+  /* Animations to fade the snackbar in and out */
+  @-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+  }
+  
+  @keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+  }
+
+    /* Scrollbar Styling */
+  /* width */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #0154fb17;
+  }
+
+  /*Dark mode*/
+
+  .dark-mode {
+    background-color: black;
+    color: white;
+    
+  }

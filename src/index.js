@@ -1,5 +1,6 @@
 import Tesseract from 'tesseract.js';
 
+//To store the method, format and the persistent state in the chrome storage
 chrome.storage.sync.get((config) => {
     if (!config.method) {
         chrome.storage.sync.set({ method: 'crop' })
@@ -18,7 +19,7 @@ function inject(tab) {
             clearTimeout(timeout)
         }
     })
-
+    //To insert loader and text
     var timeout = setTimeout(() => {
         chrome.tabs.insertCSS(tab.id, { file: 'vendor/jquery.Jcrop.min.css', runAt: 'document_start' })
         chrome.tabs.insertCSS(tab.id, { file: 'css/content.css', runAt: 'document_start' })
@@ -34,11 +35,11 @@ function inject(tab) {
 }
 
 
-//1. Called when we click the icon in the tools
+//Called when the icon is clicked
 chrome.browserAction.onClicked.addListener((tab) => {
     inject(tab)
 })
-
+//Called when alt+s is called
 chrome.commands.onCommand.addListener((command) => {
     if (command === 'take-screenshot') {
         chrome.tabs.getSelected(null, (tab) => {
@@ -48,6 +49,7 @@ chrome.commands.onCommand.addListener((command) => {
 })
 
 chrome.runtime.onMessage.addListener((req, sender, res) => {
+    //Cropping using the crop function and capturing the screenshot using the captureVisibleTab API, if the message is capture
     if (req.message === 'capture') {
         chrome.storage.sync.get((config) => {
 
@@ -61,8 +63,10 @@ chrome.runtime.onMessage.addListener((req, sender, res) => {
             })
         })
     }
+    
     else if (req.message === 'active') {
         if (req.active) {
+            //Setting the active badge in the extension title
             chrome.storage.sync.get((config) => {
                 if (config.method === 'crop') {
                     chrome.browserAction.setTitle({ tabId: sender.tab.id, title: 'Select region' })
@@ -78,7 +82,9 @@ chrome.runtime.onMessage.addListener((req, sender, res) => {
     return true
 })
 
+
 function crop(image, area, dpr, preserve, format, tab, done) {
+    //Dpr = device pixel ratio
     var top = area.y * dpr
     var left = area.x * dpr
     var width = area.w * dpr
@@ -104,8 +110,10 @@ function crop(image, area, dpr, preserve, format, tab, done) {
             w, h
         )
 
+        //Cropped image
         var cropped = canvas.toDataURL(`image/${format}`)
 
+        //Implementation of text detection
         Tesseract.recognize(cropped, {
             lang: 'eng'
         })

@@ -1,7 +1,6 @@
-# Clipify
+# Extracto
 
-![Slide 4_3 - 1](https://user-images.githubusercontent.com/42151354/160342546-e6881466-7ae5-4ba8-bbb4-f2d32834f292.png)
-![Slide 4_3 - 2](https://user-images.githubusercontent.com/42151354/160342561-e04cb535-b68b-4f91-9489-60ac116a86aa.png)
+![1](https://user-images.githubusercontent.com/42151354/178771069-5a6483be-dc97-43aa-acf8-aacbb92b8c4c.png)
 
 ## How to install
 1. Clone this repository

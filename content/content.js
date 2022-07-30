@@ -1,11 +1,11 @@
 var jcrop, selection
-
+//To send message to index.js to implement loader
 var overlay = ((active) => (state) => {
   active = typeof state === 'boolean' ? state : state === null ? active : !active
   $('.jcrop-holder')[active ? 'show' : 'hide']()
   chrome.runtime.sendMessage({message: 'active', active})
 })(false)
-
+//Initialising image to store the resultant cropped image
 var image = (done) => {
   var image = new Image()
   image.id = 'fake-image'
@@ -15,7 +15,7 @@ var image = (done) => {
     done()
   }
 }
-
+//Implementing the Jcrop function
 var init = (done) => {
   $('#fake-image').Jcrop({
     bgColor: 'none',
@@ -49,6 +49,7 @@ var init = (done) => {
   })
 }
 
+//Capturing the image by sending the message
 var capture = (force) => {
   chrome.storage.sync.get((config) => {
     if (selection && (config.method === 'crop' || (config.method === 'wait' && force))) {
@@ -75,6 +76,7 @@ window.addEventListener('resize', ((timeout) => () => {
   }, 100)
 })())
 
+//Css injection
 chrome.runtime.onMessage.addListener((req, sender, res) => {
   if (req.message === 'init') {
     res({}) // prevent re-injecting
