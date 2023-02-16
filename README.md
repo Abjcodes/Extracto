@@ -7,4 +7,4 @@
 2. Run npm install
 3. Run npm run webpack
 4. Type chrome://extensions/ in the chrome address bar
-5. Select Load unpacked and the cloned repository of Clipify
+5. Select Load unpacked and the cloned repository of Extracto
